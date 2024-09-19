@@ -1,0 +1,48 @@
+int main ()
+{
+  int D.2555;
+
+  {
+    int i;
+    int n;
+    int f;
+    int g;
+
+    try
+      {
+        scanf ("%d", &n);
+        i = 2;
+        f = 1;
+        g = i + f;
+        goto <D.2552>;
+        <D.2553>:
+        f = f * i;
+        i = i + 1;
+        <D.2552>:
+        n.0_1 = n;
+        if (i <= n.0_1) goto <D.2553>; else goto <D.2551>;
+        <D.2551>:
+        printf ("%d", f);
+        printf ("\n");
+      }
+    finally
+      {
+        n = {CLOBBER};
+      }
+  }
+  D.2555 = 0;
+  return D.2555;
+}
+
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int D.2557;
+
+  D.2557 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.2557;
+}
+
+

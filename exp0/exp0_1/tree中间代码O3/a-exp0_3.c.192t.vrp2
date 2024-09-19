@@ -1,0 +1,90 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2545, cgraph_uid=24, symbol_order=23) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 6 5
+;;
+;; Loop 1
+;;  header 4, latch 6
+;;  depth 1, outer 0
+;;  nodes: 4 6
+;; 2 succs { 3 5 }
+;; 3 succs { 4 }
+;; 4 succs { 6 5 }
+;; 6 succs { 4 }
+;; 5 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+i_3 -> { i_9 }
+n.0_12 -> { n.0_13 }
+Incremental SSA update started at block: 2
+Number of blocks in CFG: 7
+Number of blocks to update: 4 ( 57%)
+
+
+
+Value ranges after VRP:
+
+_1: unsigned int [2, 2147483647]
+_2: unsigned int [3, 2147483648]
+i_3: int ~[_6, _6]  EQUIVALENCES: { i_9 } (1 elements)
+_6: int ~[-2147483647, 2]
+f_8: int [2, +INF]
+i_9: int [3, +INF]
+n.0_12: int [2, +INF]  EQUIVALENCES: { n.0_13 } (1 elements)
+n.0_13: int VARYING
+i_14: int [2, 2147483646]
+f_15: int [1, +INF]
+f_16: int [1, +INF]
+
+
+Removing basic block 6
+int main ()
+{
+  int f;
+  int n;
+  int i;
+  unsigned int _1;
+  unsigned int _2;
+  int _6;
+  int n.0_13;
+
+  <bb 2> [local count: 118111600]:
+  scanf ("%d", &n);
+  n.0_13 = n;
+  if (n.0_13 > 1)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  _1 = (unsigned int) n.0_13;
+  _2 = _1 + 1;
+  _6 = (int) _2;
+
+  <bb 4> [local count: 955630225]:
+  # i_14 = PHI <i_9(4), 2(3)>
+  # f_15 = PHI <f_8(4), 1(3)>
+  f_8 = i_14 * f_15;
+  i_9 = i_14 + 1;
+  if (_6 != i_9)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  # f_16 = PHI <f_8(4), 1(2)>
+  __printf_chk (1, "%d", f_16);
+  __builtin_putchar (10);
+  n ={v} {CLOBBER};
+  return 0;
+
+}
+
+

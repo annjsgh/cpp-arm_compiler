@@ -1,0 +1,37 @@
+int main ()
+{
+  int D.2354;
+
+  {
+    int i;
+    int n;
+    int f;
+    int g;
+
+    try
+      {
+        scanf ("%d", &n);
+        i = 2;
+        f = 1;
+        g = i + f;
+        goto <D.2351>;
+        <D.2352>:
+        f = f * i;
+        i = i + 1;
+        <D.2351>:
+        n.0_1 = n;
+        if (i <= n.0_1) goto <D.2352>; else goto <D.2350>;
+        <D.2350>:
+        printf ("%d", f);
+        printf ("\n");
+      }
+    finally
+      {
+        n = {CLOBBER};
+      }
+  }
+  D.2354 = 0;
+  return D.2354;
+}
+
+
